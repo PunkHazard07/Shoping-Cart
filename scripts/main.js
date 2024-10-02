@@ -1,68 +1,68 @@
 // Array of 5 laptops
+class product {
+  //constructor to initialize product properties
+  constructor (id, name, price){
+  this.id = id,
+  this.name = name,
+  this.price = price
+  };
+
+  //adding method
+  displayproductInfo(){
+    console.log (`Product id: ${this.id}, Name: ${this.name}, Price: $${this.price}`);
+};
+};
+
 const laptops = [
-    {
-      name: "Dell XPS 13",
-      image: "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/g-series/g16-7630/media-gallery/black/notebook-g16-7630-nt-black-gallery-1.psd?fmt=png-alpha&pscan=auto&scl=1&hei=320&wid=427&qlt=100,1&resMode=sharp2&size=427,320&chrss=full",
-      description: "The Dell XPS 13 is a high-performance ultrabook with a stunning 13.4-inch display, Intel i7 processor, and long battery life.",
-      quantity: 1,
-      price: 1200
-    },
-    {
-      name: "Apple MacBook Air",
-      image: "https://i.pcmag.com/imagery/reviews/07f8FmuWzIKHir2YRAXsK7G-1.fit_lim.size_919x518.v1716757237.jpg",
-      description: "The Apple MacBook Air is a lightweight and powerful laptop featuring the Apple M1 chip, Retina display, and 18-hour battery life.",
-      quantity: 1,
-      price: 999
-    },
-    {
-      name: "HP Spectre x360",
-      image: "https://media.istockphoto.com/id/479520746/photo/laptop-with-blank-screen-on-white.jpg?s=612x612&w=0&k=20&c=V5dj0ayS8He0BP4x15WR5t5NKYzWTKv7VdWvD2SAVAM=",
-      description: "The HP Spectre x360 is a premium 2-in-1 laptop with a 13.3-inch touchscreen, Intel i7 processor, and a sleek design.",
-      quantity: 1,
-      price: 1300
-    },
-    {
-      name: "Lenovo ThinkPad X1 Carbon",
-      image: "https://cdn.pixabay.com/photo/2016/03/27/07/12/apple-1282241_640.jpg",
-      description: "The Lenovo ThinkPad X1 Carbon is a durable, business-class laptop with a 14-inch display, Intel i7 processor, and excellent security features.",
-      quantity: 6,
-      price: 1500
-    },
-    {
-      name: "Asus ROG Zephyrus G14",
-      image: "https://media.istockphoto.com/id/1394988455/photo/laptop-with-a-blank-screen-on-a-white-background.jpg?s=612x612&w=0&k=20&c=BXNMs3xZNXP__d22aVkeyfvgJ5T18r6HuUTEESYf_tE=",
-      description: "The Asus ROG Zephyrus G14 is a powerful gaming laptop with an AMD Ryzen 9 processor, 14-inch display, and dedicated NVIDIA RTX graphics.",
-      quantity: 1,
-      price: 1400
-    }
-  ];
+new product (1, "Dell XPS 13", 1200),
+new product (2, "Apple MacBook Air", 999),
+new product (3, "HP Spectre x360", 1300),
+new product (4, "LenovoLenovo ThinkPad X1 Carbon", 1500),
+new product (5, "Asus ROG Zephyrus G14", 1400),
+];
 
-  //render product to the D0M
+// D0M Element
   const cartContainer = document.getElementById("cart-list");
-  console.log(cartContainer);
+  let total = document.getElementById("cart-total");
 
-  //handle increment
-  function incrementquantity(param){
-    let clickProductName = param.target.id;
+  //intialize quantity for products
+  for (let product of laptops) {
+    product.quantity = 1;
+  };
 
-    //find the product in the array
-    let product;
-    for (item of laptops){
-        if (item.name === clickProductName){
-            product = item;
-            break;
-        }
+  //function to update the total price
+  function sumObject(){
+    let total = 0;
+    for (let products of laptops) {
+      total += product.price * product.quantity;
     }
+    return total;
+  }
+
+
+
+  // //handle increment
+  // function incrementquantity(param){
+  //   let clickProductName = param.target.id;
+
+    // //find the product in the array
+    // let product;
+    // for (item of laptops){
+    //     if (item.name === clickProductName){
+    //         product = item;
+    //         break;
+    //     }
+    // }
 
     //increment the quantity
-  product.quantity++;
+//   product.quantity++;
 
-  //update the quantity element for this product
-    let quantityEle = document.getElementById(`quantity-${clickProductName}`);
-    quantityEle.textContent = product.quantity;
+//   //update the quantity element for this product
+//     let quantityEle = document.getElementById(`quantity-${clickProductName}`);
+//     quantityEle.textContent = product.quantity;
 
-    totalEle.innerHTML = sumObject()
-}
+//     totalEle.innerHTML = sumObject()
+// // }
 
 //handle decrement
 function decrementQty(param){
